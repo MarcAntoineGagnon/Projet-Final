@@ -1,0 +1,40 @@
+﻿<Window
+    x:Class="Projet_Final.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projet_Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationView PaneDisplayMode="Left" 
+                    PaneTitle="SOCIÉTÉ DE PARTAGE DE TRAJETS" 
+                    IsBackButtonVisible="Visible" 
+                    IsBackEnabled="False" 
+                    IsSettingsVisible="False"
+                    SelectionChanged="NavigationView_SelectionChanged">
+        <NavigationView.Header>
+            <TextBlock Text="En-Tête" Name="tblHeader"/>
+        </NavigationView.Header>
+        <NavigationView.MenuItems>
+            
+            <NavigationViewItemHeader Content="Trajet"/>
+            <NavigationViewItem Name="iListeTrajet" Content="Liste Trajets" Icon="List" Foreground="Blue"/>
+
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Conducteur"/>
+            <NavigationViewItem Name="iListeConducteur" Content="Liste Conducteurs" Icon="List" Foreground="Blue"/>
+            
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Passager"/>
+            <NavigationViewItem Name="iListePassager" Content="Liste Passagers" Icon="List" Foreground="Blue"/>
+
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Connexion"/>
+            <NavigationViewItem Name="iConnexion" Content="Connexion" Icon="Home" Foreground="Blue"/>
+
+        </NavigationView.MenuItems>
+        <Frame x:Name="mainFrame"/>
+    </NavigationView>
+    
+</Window>
