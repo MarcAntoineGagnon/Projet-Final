@@ -9,6 +9,33 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+            <Grid Background="DarkGreen">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="241*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
+                <StackPanel Grid.RowSpan="2">
+               <!--     <TextBlock Text="Ajouter un Trajet" FontSize="30" VariableSizedWrapGrid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="20"/>
+-->
+
+                    <!--<TextBox x:Name="tbIdConducteur" Header="Id conducteur" Margin="10" PlaceholderText="Entrez l'Id du conducteur"/>
+                    <TextBlock x:Name="tblErreurIdConducteur"  Text="vous devez ajouter l'Id du conducteur" Foreground="Red"  Visibility="Collapsed"/>-->
+
+                    <TextBox x:Name="tbVilleDep" Header="Ville départ" Margin="10" PlaceholderText="Entrez la Ville de départ" />
+                    <TextBlock x:Name="tblErreurVilleDep"  Text="vous devez ajouter la Ville de départ" Foreground="Red"  Visibility="Collapsed"/>
+
+                    <TextBox x:Name="tbVilleArr" Header="Ville d'arrivé" Margin="10" PlaceholderText="Entrez la ville d'arrivé" />
+                    <TextBlock x:Name="tblErreurVilleArr"  Text="vous devez ajouter la ville d'arrivé" Foreground="Red"  Visibility="Collapsed"/>
+
+                    <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Foreground="White"
+                 Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+                </StackPanel>
+
+            </Grid>
     </Grid>
 </Page>

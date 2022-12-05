@@ -19,14 +19,17 @@
         <NavigationView.MenuItems>
             
             <NavigationViewItemHeader Content="Trajet"/>
+            <NavigationViewItem Name="iAjoutTrajet" Content="Ajout Trajet" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListeTrajet" Content="Liste Trajets" Icon="List" Foreground="Blue"/>
 
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Conducteur"/>
+            <NavigationViewItem Name="iAjoutConducteur" Content="Ajout Conducteur" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListeConducteur" Content="Liste Conducteurs" Icon="List" Foreground="Blue"/>
             
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Passager"/>
+            <NavigationViewItem Name="iAjoutPassager" Content="Ajout Passager" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListePassager" Content="Liste Passagers" Icon="List" Foreground="Blue"/>
 
             <NavigationViewItemSeparator />
