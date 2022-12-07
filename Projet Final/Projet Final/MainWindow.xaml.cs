@@ -27,8 +27,8 @@ namespace Projet_Final
         public MainWindow()
         {
             this.InitializeComponent();
-            tblHeader.Text = "Connexion";
-            mainFrame.Navigate(typeof(Connexion));
+            tblHeader.Text = "Liste Trajet";
+            mainFrame.Navigate(typeof(Afficher_Trajet));
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
