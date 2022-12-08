@@ -37,13 +37,25 @@ namespace Projet_Final
 
             switch (item.Name)
             {
+                case "iAjoutTrajet":
+                    tblHeader.Text = "Ajout Trajet";
+                    mainFrame.Navigate(typeof(Ajout_Trajet));
+                    break;
                 case "iListeTrajet":
                     tblHeader.Text = "Liste Trajet";
                     mainFrame.Navigate(typeof(Afficher_Trajet));
                     break;
+                case "iAjoutConducteur":
+                    tblHeader.Text = "Ajout Conducteur";
+                    mainFrame.Navigate(typeof(Ajout_Conducteur));
+                    break;
                 case "iListeConducteur":
                     tblHeader.Text = "Liste Conducteur";
                     mainFrame.Navigate(typeof(Afficher_Conducteur));
+                    break;
+                case "iAjoutPassager":
+                    tblHeader.Text = "Ajout Passager";
+                    mainFrame.Navigate(typeof(Ajout_Passager));
                     break;
                 case "iListePassager":
                     tblHeader.Text = "Liste Passager";

@@ -9,6 +9,30 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock x:Name="titre" Text="Connexion"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+
+        </Grid.RowDefinitions>
+
+      <!--  <TextBlock x:Name="titre" Grid.Row="0" Grid.Column="0" Text="Connexion" FontSize="30" Margin="10,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+       --> <TextBlock x:Name="texte" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="Veuillez entrer votre nom d'utilisateur et votre mot de passe"/>
+        <TextBox x:Name="login" Grid.Row="3" Grid.Column="1" PlaceholderText="Nom d'utilisateur"/>
+        
+        <PasswordBox x:Name="mdp" PlaceholderText="Mot de passe" Grid.Row="3" Grid.Column="3" Password="Mot de passe"/>
+        <Button x:Name="connexion" Grid.Row="5" Grid.Column="1" Content="Connexion" Click="connexion_Click"/>
     </Grid>
 </Page>
