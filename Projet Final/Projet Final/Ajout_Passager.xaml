@@ -9,6 +9,45 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <ScrollViewer>
+        <Grid Background="DarkGreen">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="241*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.RowSpan="2">
+
+                <!--<TextBlock Text="Ajouter un Passager" FontSize="30" VariableSizedWrapGrid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="20"/>-->
+
+
+                <TextBox x:Name="tbNom" Grid.Column="1" Header="Nom" Margin="10" PlaceholderText="Entrez le nom"/>
+                <TextBlock x:Name="tblErreurNom"  Grid.Column="1" Text="vous devez ajouter un Nom" Foreground="Red"  Visibility="Collapsed"/>
+
+                <TextBox x:Name="tbPrenom" Grid.Column="1" Header="Prenom" Margin="10" PlaceholderText="Entrez le Prenom" />
+                <TextBlock x:Name="tblErreurPrenom" Grid.Column="1" Text="vous devez ajouter un Prenom" Foreground="Red"  Visibility="Collapsed"/>
+
+                <TextBox x:Name="tbAdresse" Grid.Column="1" Header="Adresse" Margin="10" PlaceholderText="Entrez l'adresse" />
+                <TextBlock x:Name="tblErreurAdresse" Grid.Column="1" Text="vous devez ajouter une adresse" Foreground="Red"  Visibility="Collapsed"/>
+
+                <TextBox x:Name="tbTelephone" Grid.Column="1" Header="Téléphone" Margin="10" PlaceholderText="Entrez le numéro de téléphone" />
+                <TextBlock x:Name="tblErreurTelephone" Grid.Column="1" Text="vous devez ajouter un numéro de téléphone" Foreground="Red"  Visibility="Collapsed"/>
+
+                <TextBox x:Name="tbEmail" Grid.Column="1" Header="Email" Margin="10" PlaceholderText="Entrez l'email" />
+                <TextBlock x:Name="tblErreurEmail" Grid.Column="1" Text="vous devez ajouter un email" Foreground="Red"  Visibility="Collapsed"/>
+
+                <TextBox x:Name="tbPassword" Grid.Column="1" Header="Password" Margin="10" PlaceholderText="Entrez le password" />
+                <PasswordBox x:Name="tblErreurPassword" Grid.Column="1" PlaceholderText="vous devez ajouter un password" Foreground="Red"  Visibility="Collapsed"/>
+
+                <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Foreground="White"
+                 Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
     </Grid>
 </Page>
