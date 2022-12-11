@@ -14,16 +14,18 @@ namespace Projet_Final
         int id_trajet;
         string nom;
         string prenom;
+        string adresse;
         string telephone;
         string email;
         string password;
 
-        public Passager(int id, int id_trajet, string nom, string prenom, string telephone, string email, string password)
+        public Passager(int id, int id_trajet, string nom, string prenom, string adresse, string telephone, string email, string password)
         {
             this.id = id;
             this.id_trajet = id_trajet;
             this.nom = nom;
             this.prenom = prenom;
+            this.adresse = adresse;
             this.telephone = telephone;
             this.email = email;
             this.password = password;
@@ -36,6 +38,8 @@ namespace Projet_Final
         public string Nom { get { return nom; } set { nom = value; this.OnPropertyChanged(); } }
 
         public string Prenom { get { return prenom; } set { prenom = value; this.OnPropertyChanged(); } }
+
+        public string Adresse { get { return adresse; } set { adresse = value; this.OnPropertyChanged(); } }
 
         public string Telephone { get { return telephone; } set { telephone = value; this.OnPropertyChanged(); } }
 
@@ -53,7 +57,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + "\nNuméros de trajet : " + id_trajet + "\nNom : " + nom + "\nPrenom : " + prenom + "\n#Telephone : " + telephone + "\nEmail : " + email;
+            return id + "\nNuméros de trajet : " + id_trajet + "\nNom : " + nom + "\nPrenom : " + prenom + "\nAdresse : " + adresse + "\n#Telephone : " + telephone + "\nEmail : " + email;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

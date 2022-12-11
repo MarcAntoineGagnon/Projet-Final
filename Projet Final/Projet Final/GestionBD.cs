@@ -95,7 +95,7 @@ namespace Projet_Final
 
             while (r.Read())
             {
-                liste.Add(new Conducteur(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetDouble(0)));
+                liste.Add(new Conducteur(r.GetInt32(0), r.GetString(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetDouble(7)));
             }
             r.Close();
             con.Close();
@@ -110,10 +110,12 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into conducteur values(@nom, @prenom, @telephone, @email, @password, @argent) ";
+                commande.CommandText = "insert into conducteur values(@id, @nom, @prenom, @adresse, @telephone, @email, @password, @argent) ";
 
+                commande.Parameters.AddWithValue("@id", c.Id);
                 commande.Parameters.AddWithValue("@nom", c.Nom);
                 commande.Parameters.AddWithValue("@prenom", c.Prenom);
+                commande.Parameters.AddWithValue("@adresse", c.Adresse);
                 commande.Parameters.AddWithValue("@telephone", c.Telephone);
                 commande.Parameters.AddWithValue("@email", c.Email);
                 commande.Parameters.AddWithValue("@password", c.Password);
@@ -143,11 +145,12 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "update conducteur set nom = @nom, prenom = @prenom,  telephone = @telephone, email = @email, password = @password, argent = @argent where id = @id";
+                commande.CommandText = "update conducteur set nom = @nom, prenom = @prenom, adresse = @adresse, telephone = @telephone, email = @email, password = @password, argent = @argent where id = @id";
 
                 commande.Parameters.AddWithValue("@id", c.Id);
                 commande.Parameters.AddWithValue("@nom", c.Nom);
                 commande.Parameters.AddWithValue("@prenom", c.Prenom);
+                commande.Parameters.AddWithValue("@adresse", c.Adresse);
                 commande.Parameters.AddWithValue("@telephone", c.Telephone);
                 commande.Parameters.AddWithValue("@email", c.Email);
                 commande.Parameters.AddWithValue("@password", c.Password);
@@ -184,7 +187,7 @@ namespace Projet_Final
 
             while (r.Read())
             {
-                liste.Add(new Passager(r.GetInt32(0), r.GetInt32(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(0)));
+                liste.Add(new Passager(r.GetInt32(0), r.GetInt32(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7)));
             }
             r.Close();
             con.Close();
@@ -199,8 +202,9 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into passager values(@nom, @prenom, @telephone, @email, @password) ";
+                commande.CommandText = "insert into passager values(@id, @nom, @prenom, @telephone, @email, @password) ";
 
+                commande.Parameters.AddWithValue("@id", p.Id);
                 commande.Parameters.AddWithValue("@nom", p.Nom);
                 commande.Parameters.AddWithValue("@prenom", p.Prenom);
                 commande.Parameters.AddWithValue("@telephone", p.Telephone);
