@@ -11,15 +11,17 @@ namespace Projet_Final
     internal class Passager : IEquatable<Passager>, INotifyPropertyChanged
     {
         int id;
+        int id_trajet;
         string nom;
         string prenom;
         string telephone;
         string email;
         string password;
 
-        public Passager(int id, string nom, string prenom, string telephone, string email, string password)
+        public Passager(int id, int id_trajet, string nom, string prenom, string telephone, string email, string password)
         {
             this.id = id;
+            this.id_trajet = id_trajet;
             this.nom = nom;
             this.prenom = prenom;
             this.telephone = telephone;
@@ -28,6 +30,8 @@ namespace Projet_Final
         }
 
         public int Id { get { return id; } set { id = value; this.OnPropertyChanged(); } }
+
+        public int Id_trajet { get { return id_trajet; } set { id_trajet = value; this.OnPropertyChanged(); } }
 
         public string Nom { get { return nom; } set { nom = value; this.OnPropertyChanged(); } }
 
@@ -41,7 +45,7 @@ namespace Projet_Final
 
         bool IEquatable<Passager>.Equals(Passager other)
         {
-            if (this.id.Equals(other.id) && this.nom.Equals(other.nom) && this.prenom.Equals(other.prenom) && this.telephone.Equals(other.telephone) && this.email.Equals(other.email) && this.password.Equals(other.password))
+            if (this.id.Equals(other.id) && this.id_trajet.Equals(other.id_trajet) && this.nom.Equals(other.nom) && this.prenom.Equals(other.prenom) && this.telephone.Equals(other.telephone) && this.email.Equals(other.email) && this.password.Equals(other.password))
                 return true;
             else
                 return false;
@@ -49,7 +53,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + nom + " " + prenom + " " + telephone + " " + email + " " + password;
+            return id + " " + id_trajet + " " + nom + " " + prenom + " " + telephone + " " + email + " " + password;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

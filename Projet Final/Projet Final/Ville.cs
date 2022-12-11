@@ -10,18 +10,18 @@ namespace Projet_Final
 {
     internal class Ville : IEquatable<Ville>, INotifyPropertyChanged
     {
-        string nomVille;
+        string nom_ville;
 
-        public Ville(string nomVille)
+        public Ville(string nom_ville)
         {
-            this.nomVille = nomVille;
+            this.nom_ville = nom_ville;
         }
 
-        public string NonVille { get { return nomVille; } set { nomVille = value; this.OnPropertyChanged() } }
+        public string Nom_ville { get { return nom_ville; } set { nom_ville = value; this.OnPropertyChanged(); } }
 
         bool IEquatable<Ville>.Equals(Ville other)
         {
-            if(this.nomVille.Equals(other.nomVille))
+            if(this.nom_ville.Equals(other.nom_ville))
                 return true;
             else
                 return false;
@@ -29,7 +29,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return nomVille;
+            return nom_ville;
         }
 
 

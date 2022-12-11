@@ -12,25 +12,33 @@ namespace Projet_Final
     internal class Trajet : IEquatable<Trajet>, INotifyPropertyChanged
     {
         int id;
+        int id_voiture;
+        int id_conducteur;
         string date;
         string heure_depart;
         string heure_arriver;
-        string type_vehicule;
-        double prix_passager;
+        string ville_depart;
+        string ville_arriver;
         bool arret;
 
-        public Trajet(int id, string date, string heure_depart, string heure_arriver, string type_vehicule, double prix_passager, bool arret)
+        public Trajet(int id,int id_voiture, int id_conducteur, string date, string heure_depart, string heure_arriver, string ville_depart, string ville_arriver, bool arret)
         {
             this.id = id;
+            this.id_voiture = id_voiture;
+            this.id_conducteur = id_conducteur;
             this.date = date;
             this.heure_depart = heure_depart;
             this.heure_arriver = heure_arriver;
-            this.type_vehicule = type_vehicule;
-            this.prix_passager = prix_passager;
+            this.ville_depart = ville_depart;
+            this.ville_arriver = ville_arriver;
             this.arret = arret;
         }
 
         public int Id { get { return id; } set { id = value; this.OnPropertyChanged(); } }
+
+        public int Id_voiture { get { return id_voiture; } set { id_voiture = value; this.OnPropertyChanged(); } }
+
+        public int Id_conducteur { get { return id_conducteur; } set { id_conducteur = value; this.OnPropertyChanged(); } }
 
         public string Date { get { return date; } set { date = value; this.OnPropertyChanged(); } }
 
@@ -38,15 +46,15 @@ namespace Projet_Final
 
         public string Heure_arriver { get { return heure_arriver; } set { heure_arriver = value; this.OnPropertyChanged(); } }
 
-        public string Type_vehicule { get { return type_vehicule; } set { type_vehicule = value; this.OnPropertyChanged(); } }
+        public string Ville_depart { get { return ville_depart; } set { ville_depart = value; this.OnPropertyChanged(); } }
 
-        public double Prix_passager { get { return prix_passager; } set { prix_passager = value; this.OnPropertyChanged(); } }
+        public string Ville_arriver { get { return ville_arriver; } set { ville_arriver = value; this.OnPropertyChanged(); } }
 
         public bool Arret { get { return arret; } set { arret = value; this.OnPropertyChanged(); } }
 
         bool IEquatable<Trajet>.Equals(Trajet other)
         {
-            if (this.id.Equals(other.id) && this.date.Equals(other.date) && this.heure_depart.Equals(other.heure_depart) && this.heure_arriver.Equals(other.heure_arriver) && this.type_vehicule.Equals(other.type_vehicule) && this.prix_passager.Equals(other.prix_passager) && this.arret.Equals(other.arret))
+            if (this.id.Equals(other.id) && this.id_voiture.Equals(other.id_voiture) && this.id_conducteur.Equals(other.id_conducteur) && this.date.Equals(other.date) && this.heure_depart.Equals(other.heure_depart) && this.heure_arriver.Equals(other.heure_arriver) && this.ville_depart.Equals(other.ville_depart) && this.ville_arriver.Equals(other.ville_arriver) && this.arret.Equals(other.arret))
                 return true;
             else
                 return false;
@@ -54,7 +62,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + date + " " + heure_depart + " " + heure_arriver + " " + type_vehicule + " " + prix_passager + " "  + arret;
+            return id + " " + id_voiture + " " + id_conducteur + " " + date + " " + heure_depart + " " + heure_arriver + " " + ville_depart + " " + ville_arriver + " " + arret;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

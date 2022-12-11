@@ -17,8 +17,9 @@ namespace Projet_Final
         string telephone;
         string email;
         string password;
+        double argent;
 
-        public Conducteur(int id, string nom, string prenom, string telephone, string email, string password)
+        public Conducteur(int id, string nom, string prenom, string telephone, string email, string password, double argent)
         {
             this.id = id;
             this.nom = nom;
@@ -26,6 +27,7 @@ namespace Projet_Final
             this.telephone = telephone;
             this.email = email;
             this.password = password;
+            this.argent = argent;
         }
 
         public int Id { get { return id; } set { id = value; this.OnPropertyChanged(); } }
@@ -40,9 +42,11 @@ namespace Projet_Final
 
         public string Password { get { return password; } set { password = value; this.OnPropertyChanged(); } }
 
+        public double Argent { get { return argent; } set { argent = value; this.OnPropertyChanged(); } }
+
         bool IEquatable<Conducteur>.Equals(Conducteur other)
         {
-            if (this.id.Equals(other.id) && this.nom.Equals(other.nom) && this.prenom.Equals(other.prenom) && this.telephone.Equals(other.telephone) && this.email.Equals(other.email) && this.password.Equals(other.password))
+            if (this.id.Equals(other.id) && this.nom.Equals(other.nom) && this.prenom.Equals(other.prenom) && this.telephone.Equals(other.telephone) && this.email.Equals(other.email) && this.password.Equals(other.password) && this.argent.Equals(other.argent))
                 return true;
             else
                 return false;
@@ -50,7 +54,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + nom + " " + prenom + " " + telephone + " " + email + " " + password;
+            return id + " " + nom + " " + prenom + " " + telephone + " " + email + " " + password + " " + argent;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
