@@ -12,12 +12,12 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Afficher_admin.xaml" />
+    <None Remove="Afficher_Admin.xaml" />
     <None Remove="Afficher_Conducteur.xaml" />
     <None Remove="Afficher_Passager.xaml" />
     <None Remove="Afficher_Trajet.xaml" />
-    <None Remove="Afficher_ville.xaml" />
-    <None Remove="Afficher_voiture.xaml" />
+    <None Remove="Afficher_Ville.xaml" />
+    <None Remove="Afficher_Voiture.xaml" />
     <None Remove="Ajout_Admin.xaml" />
     <None Remove="Ajout_Conducteur.xaml" />
     <None Remove="Ajout_Passager.xaml" />
@@ -68,17 +68,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Afficher_voiture.xaml">
+    <Page Update="Afficher_Voiture.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Afficher_ville.xaml">
+    <Page Update="Afficher_Ville.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Afficher_admin.xaml">
+    <Page Update="Afficher_Admin.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

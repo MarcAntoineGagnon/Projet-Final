@@ -19,11 +19,11 @@ using Windows.Foundation.Collections;
 namespace Projet_Final
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_ville : Window
+    public sealed partial class Afficher_Ville : Page
     {
-        public Afficher_ville()
+        public Afficher_Ville()
         {
             this.InitializeComponent();
             lvVille.ItemsSource = GestionBD.getInstance().getVille();

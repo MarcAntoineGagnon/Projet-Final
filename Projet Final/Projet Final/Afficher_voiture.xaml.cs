@@ -19,11 +19,11 @@ using Windows.Foundation.Collections;
 namespace Projet_Final
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_voiture : Window
+    public sealed partial class Afficher_Voiture : Page
     {
-        public Afficher_voiture()
+        public Afficher_Voiture()
         {
             this.InitializeComponent();
             lvVoiture.ItemsSource = GestionBD.getInstance().getVoiture();

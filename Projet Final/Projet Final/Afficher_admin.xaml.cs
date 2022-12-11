@@ -19,11 +19,11 @@ using Windows.Foundation.Collections;
 namespace Projet_Final
 {
     /// <summary>
-    /// An empty window that can be used on its own or navigated to within a Frame.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_admin : Window
+    public sealed partial class Afficher_Admin : Page
     {
-        public Afficher_admin()
+        public Afficher_Admin()
         {
             this.InitializeComponent();
             lvAdmin.ItemsSource = GestionBD.getInstance().getAdmin();

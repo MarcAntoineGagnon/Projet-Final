@@ -41,7 +41,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + type_vehicule + " " + nb_place + " " + prix_passager;
+            return id + "\nType de vehicule : " + type_vehicule + "\nNombre de place : " + nb_place + "\nPrix par passager : " + prix_passager;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

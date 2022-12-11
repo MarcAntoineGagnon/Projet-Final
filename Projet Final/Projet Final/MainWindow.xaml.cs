@@ -47,7 +47,7 @@ namespace Projet_Final
                     break;
                 case "iListeAdmin":
                     tblHeader.Text = "Liste Administrateur";
-                    mainFrame.Navigate(typeof(Afficher_admin));
+                    mainFrame.Navigate(typeof(Afficher_Admin));
                     break;
                 case "iAjoutAdmin":
                     tblHeader.Text = "Ajout Administrateur";
@@ -71,7 +71,7 @@ namespace Projet_Final
                     break;
                 case "iListeVille":
                     tblHeader.Text = "Liste Ville";
-                    mainFrame.Navigate(typeof(Afficher_ville));
+                    mainFrame.Navigate(typeof(Afficher_Ville));
                     break;
                 case "iAjoutVille":
                     tblHeader.Text = "Ajout Ville";
@@ -79,7 +79,7 @@ namespace Projet_Final
                     break;
                 case "iListeVoiture":
                     tblHeader.Text = "Liste Voiture";
-                    mainFrame.Navigate(typeof(Afficher_voiture));
+                    mainFrame.Navigate(typeof(Afficher_Voiture));
                     break;
                 case "iAjoutVoiture":
                     tblHeader.Text = "Ajout Voiture";

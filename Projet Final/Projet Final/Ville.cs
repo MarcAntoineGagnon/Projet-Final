@@ -29,7 +29,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return nom_ville;
+            return "Nom : " + nom_ville;
         }
 
 

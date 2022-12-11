@@ -56,8 +56,9 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into admin values(@nom, @prenom, @email, @password) ";
+                commande.CommandText = "insert into admin values(@id, @nom, @prenom, @email, @password) ";
 
+                commande.Parameters.AddWithValue("@id", a.Id);
                 commande.Parameters.AddWithValue("@nom", a.Nom);
                 commande.Parameters.AddWithValue("@prenom", a.Prenom);
                 commande.Parameters.AddWithValue("@email", a.Email);
