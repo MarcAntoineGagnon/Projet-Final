@@ -17,21 +17,36 @@
             <TextBlock Text="En-Tête" Name="tblHeader"/>
         </NavigationView.Header>
         <NavigationView.MenuItems>
-            
+            <!-- TRAJET -->
             <NavigationViewItemHeader Content="Trajet"/>
             <NavigationViewItem Name="iAjoutTrajet" Content="Ajout Trajet" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListeTrajet" Content="Liste Trajets" Icon="List" Foreground="Blue"/>
-
+            <!-- ADMIN -->
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Administrateur"/>
+            <NavigationViewItem Name="iAjoutAdmin" Content="Ajout Admin" Icon="Add" Foreground="Green"/>
+            <NavigationViewItem Name="iListeAdmin" Content="Liste Admin" Icon="List" Foreground="Blue"/>
+            <!-- CONDUCTEUR -->
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Conducteur"/>
             <NavigationViewItem Name="iAjoutConducteur" Content="Ajout Conducteur" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListeConducteur" Content="Liste Conducteurs" Icon="List" Foreground="Blue"/>
-            
+            <!-- PASSAGER -->
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Passager"/>
             <NavigationViewItem Name="iAjoutPassager" Content="Ajout Passager" Icon="Add" Foreground="Green"/>
             <NavigationViewItem Name="iListePassager" Content="Liste Passagers" Icon="List" Foreground="Blue"/>
-
+            <!-- VILLE -->
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Ville"/>
+            <NavigationViewItem Name="iAjoutVille" Content="Ajout Ville" Icon="Add" Foreground="Green"/>
+            <NavigationViewItem Name="iListeVille" Content="Liste Ville" Icon="List" Foreground="Blue"/>
+            <!-- VOITURE -->
+            <NavigationViewItemSeparator />
+            <NavigationViewItemHeader Content="Voiture"/>
+            <NavigationViewItem Name="iAjoutVoiture" Content="Ajout Voiture" Icon="Add" Foreground="Green"/>
+            <NavigationViewItem Name="iListeVoiture" Content="Liste Voiture" Icon="List" Foreground="Blue"/>
+            <!-- CONNEXION -->
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Connexion"/>
             <NavigationViewItem Name="iConnexion" Content="Connexion" Icon="Home" Foreground="Blue"/>

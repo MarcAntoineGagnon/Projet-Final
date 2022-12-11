@@ -26,6 +26,7 @@ namespace Projet_Final
         public Afficher_Passager()
         {
             this.InitializeComponent();
+            lvPassager.ItemsSource = GestionBD.getInstance().getPassager();
         }
     }
 }

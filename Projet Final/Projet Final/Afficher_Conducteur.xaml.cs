@@ -26,6 +26,7 @@ namespace Projet_Final
         public Afficher_Conducteur()
         {
             this.InitializeComponent();
+            lvConducteur.ItemsSource = GestionBD.getInstance().getConducteur();
         }
     }
 }

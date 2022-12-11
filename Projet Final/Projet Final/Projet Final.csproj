@@ -12,12 +12,18 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Afficher_admin.xaml" />
     <None Remove="Afficher_Conducteur.xaml" />
     <None Remove="Afficher_Passager.xaml" />
     <None Remove="Afficher_Trajet.xaml" />
+    <None Remove="Afficher_ville.xaml" />
+    <None Remove="Afficher_voiture.xaml" />
+    <None Remove="Ajout_Admin.xaml" />
     <None Remove="Ajout_Conducteur.xaml" />
     <None Remove="Ajout_Passager.xaml" />
     <None Remove="Ajout_Trajet.xaml" />
+    <None Remove="Ajout_Ville.xaml" />
+    <None Remove="Ajout_Voiture.xaml" />
     <None Remove="Connexion.xaml" />
   </ItemGroup>
 
@@ -45,6 +51,36 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ajout_Voiture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ajout_Ville.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ajout_Admin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Afficher_voiture.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Afficher_ville.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Afficher_admin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Afficher_Passager.xaml">

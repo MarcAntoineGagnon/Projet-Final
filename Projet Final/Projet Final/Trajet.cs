@@ -62,7 +62,10 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + id_voiture + " " + id_conducteur + " " + date + " " + heure_depart + " " + heure_arriver + " " + ville_depart + " " + ville_arriver + " " + arret;
+            return id + "\n" + "numéro de voiture : " + id_voiture + "\n" + "numéro du conducteur : " + id_conducteur + "\n" + "Date : " + date + 
+                        "\n" + "Heure de départ : " + heure_depart + "\n" + "Heure d'arrivé : " + heure_arriver + "\n" + "Ville de départ : " + ville_depart +
+                        "\n" + "Destination : " + ville_arriver + "\n" + "Arret : " + arret;
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

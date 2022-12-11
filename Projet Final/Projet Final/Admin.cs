@@ -45,7 +45,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + nom + " " + prenom + " " + email + " " + password;
+            return id + "\nNom : " + nom + "\nPrenom" + prenom + "\nEmail : " + email;
         }
 
 

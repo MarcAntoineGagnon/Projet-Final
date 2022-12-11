@@ -54,7 +54,7 @@ namespace Projet_Final
 
         public override string ToString()
         {
-            return id + " " + nom + " " + prenom + " " + telephone + " " + email + " " + password + " " + argent;
+            return id + "\nNom : " + nom + "\nPrenom : " + prenom + "\n#Telephone : " + telephone + "\nEmail : " + email + "\nArgent : " + argent;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -19,14 +19,14 @@ using Windows.Foundation.Collections;
 namespace Projet_Final
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_Trajet : Page
+    public sealed partial class Afficher_admin : Window
     {
-        public Afficher_Trajet()
+        public Afficher_admin()
         {
             this.InitializeComponent();
-            lvTrajet.ItemsSource = GestionBD.getInstance().getTrajet();
+            lvAdmin.ItemsSource = GestionBD.getInstance().getAdmin();
         }
     }
 }

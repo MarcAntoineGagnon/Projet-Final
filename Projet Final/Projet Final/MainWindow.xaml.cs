@@ -45,6 +45,14 @@ namespace Projet_Final
                     tblHeader.Text = "Liste Trajet";
                     mainFrame.Navigate(typeof(Afficher_Trajet));
                     break;
+                case "iListeAdmin":
+                    tblHeader.Text = "Liste Administrateur";
+                    mainFrame.Navigate(typeof(Afficher_admin));
+                    break;
+                case "iAjoutAdmin":
+                    tblHeader.Text = "Ajout Administrateur";
+                    mainFrame.Navigate(typeof(Ajout_Admin));
+                    break;
                 case "iAjoutConducteur":
                     tblHeader.Text = "Ajout Conducteur";
                     mainFrame.Navigate(typeof(Ajout_Conducteur));
@@ -60,6 +68,22 @@ namespace Projet_Final
                 case "iListePassager":
                     tblHeader.Text = "Liste Passager";
                     mainFrame.Navigate(typeof(Afficher_Passager));
+                    break;
+                case "iListeVille":
+                    tblHeader.Text = "Liste Ville";
+                    mainFrame.Navigate(typeof(Afficher_ville));
+                    break;
+                case "iAjoutVille":
+                    tblHeader.Text = "Ajout Ville";
+                    mainFrame.Navigate(typeof(Ajout_Ville));
+                    break;
+                case "iListeVoiture":
+                    tblHeader.Text = "Liste Voiture";
+                    mainFrame.Navigate(typeof(Afficher_voiture));
+                    break;
+                case "iAjoutVoiture":
+                    tblHeader.Text = "Ajout Voiture";
+                    mainFrame.Navigate(typeof(Ajout_Voiture));
                     break;
                 case "iConnexion":
                     tblHeader.Text = "Liste Connexion";

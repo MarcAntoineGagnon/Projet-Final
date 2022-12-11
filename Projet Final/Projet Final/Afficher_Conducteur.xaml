@@ -9,40 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ScrollViewer>
-        <GridView>
-            <Grid Margin="0 0 0 10"  Background="DarkGreen">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="400"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="0.5*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="Non : " Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Name="tbnom" Text="Test M" Grid.Row="1" Grid.Column="2"/>
-
-                <TextBlock Text="Prénom : " Grid.Row="2" Grid.Column="1"/>
-                <TextBlock Name="tbPrenom" Text="Test N" Grid.Row="2" Grid.Column="2"/>
-
-                <TextBlock Text="Adresse : " Grid.Row="3" Grid.Column="1"/>
-                <TextBlock Name="tbAdresse" Text="Test P" Grid.Row="3" Grid.Column="2"/>
-
-                <TextBlock Text="Téléphone : " Grid.Row="4" Grid.Column="1"/>
-                <TextBlock Name="tbTelephone" Text="Test P" Grid.Row="4" Grid.Column="2"/>
-
-                <TextBlock Text="Email : " Grid.Row="5" Grid.Column="1"/>
-                <TextBlock Name="tbEmail" Text="Test P" Grid.Row="5" Grid.Column="2"/>
-            </Grid>
-        </GridView>
-        </ScrollViewer>
+        <ListView x:Name="lvConducteur"/>
     </Grid>  
     
 </Page>
