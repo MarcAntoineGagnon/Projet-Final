@@ -50,6 +50,7 @@
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Connexion"/>
             <NavigationViewItem Name="iConnexion" Content="Connexion" Icon="Home" Foreground="Blue"/>
+            <NavigationViewItem Name="iDeconnexion" Content="Déconnexion" Icon="Home" Foreground="Blue"/>
 
         </NavigationView.MenuItems>
         <Frame x:Name="mainFrame"/>

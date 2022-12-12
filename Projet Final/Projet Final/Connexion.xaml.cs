@@ -26,6 +26,7 @@ namespace Projet_Final
         public Connexion()
         {
             this.InitializeComponent();
+            usager.Text = MainWindow.connecter;
         }
 
         private void connexion_Click(object sender, RoutedEventArgs e)

@@ -91,6 +91,10 @@ namespace Projet_Final
                     tblHeader.Text = "Liste Connexion";
                     mainFrame.Navigate(typeof(Connexion));
                     break;
+                case "iDeconnexion":
+                    connecter = "Personne";
+                    id = 0;
+                    break;
                 default:
                     break;
             }
