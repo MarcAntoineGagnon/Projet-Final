@@ -14,9 +14,33 @@ namespace Projet_Final
     {
         MySqlConnection con;
         static GestionBD gestionBD = null;
-        NavigationViewItem navAjoutTrajet;
+        NavigationViewItem iAjoutTrajet;
+        NavigationViewItem iAjoutAdmin;
+        NavigationViewItem iListeAdmin;
+        NavigationViewItem iListeConducteur;
+        NavigationViewItem iListePassager;
+        NavigationViewItem iAjoutVille;
+        NavigationViewItem iListeVille;
+        NavigationViewItem iAjoutVoiture;
+        NavigationViewItem iListeVoiture;
 
-        public NavigationViewItem NavAjoutTrajet { get => navAjoutTrajet; set => navAjoutTrajet = value; }
+        public NavigationViewItem IAjoutTrajet { get => iAjoutTrajet; set => iAjoutTrajet = value; }
+
+        public NavigationViewItem IAjoutAdmin { get => iAjoutAdmin; set => iAjoutAdmin = value; }
+
+        public NavigationViewItem IListeAdmin { get => iListeAdmin; set => iListeAdmin = value; }
+
+        public NavigationViewItem IListeConducteur { get => iListeConducteur; set => iListeConducteur = value; }
+
+        public NavigationViewItem IListePassager { get => iListePassager; set => iListePassager = value; }
+
+        public NavigationViewItem IAjoutVille { get => iAjoutVille; set => iAjoutVille = value; }
+
+        public NavigationViewItem IListeVille { get => iListeVille; set => iListeVille = value; }
+
+        public NavigationViewItem IAjoutVoiture { get => iAjoutVoiture; set => iAjoutVoiture = value; }
+
+        public NavigationViewItem IListeVoiture { get => iListeVoiture; set => iListeVoiture = value; }
 
         public GestionBD()
         {
@@ -231,7 +255,7 @@ namespace Projet_Final
 
         }
 
-        public int modifierPassager(Passager p)
+        public int modifierPassager(Trajet t, int id)
         {
             int retour = 0;
 
@@ -239,15 +263,10 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "update conducteur set id_trajet = @id_trajet nom = @nom, prenom = @prenom,  telephone = @telephone, email = @email, password = @password, argent = @argent where id = @id";
+                commande.CommandText = "update passager set id_trajet = @id_trajet where id = @id";
 
-                commande.Parameters.AddWithValue("@id", p.Id);
-                commande.Parameters.AddWithValue("@id_trajet", p.Id_trajet);
-                commande.Parameters.AddWithValue("@nom", p.Nom);
-                commande.Parameters.AddWithValue("@prenom", p.Prenom);
-                commande.Parameters.AddWithValue("@telephone", p.Telephone);
-                commande.Parameters.AddWithValue("@email", p.Email);
-                commande.Parameters.AddWithValue("@password", p.Password);
+                commande.Parameters.AddWithValue("@id", id);
+                commande.Parameters.AddWithValue("@id_trajet", t.Id);
 
 
                 con.Open();
@@ -453,7 +472,15 @@ namespace Projet_Final
             {
                 MainWindow.connecter = "admin";
                 MainWindow.id = id;
-                navAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             }
 
             return id;
@@ -484,6 +511,15 @@ namespace Projet_Final
             {
                 MainWindow.connecter = "conducteur";
                 MainWindow.id = id;
+                iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             }
 
             return id;
@@ -514,9 +550,33 @@ namespace Projet_Final
             {
                 MainWindow.connecter = "passager";
                 MainWindow.id = id;
+                iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             }
 
             return id;
+        }
+
+        public void deconnexion()
+        {
+            MainWindow.connecter = "Personne";
+            MainWindow.id = 0;
+            iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
         }
 
 

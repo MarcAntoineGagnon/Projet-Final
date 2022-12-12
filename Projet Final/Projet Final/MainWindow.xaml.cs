@@ -29,26 +29,22 @@ namespace Projet_Final
         public MainWindow()
         {
             this.InitializeComponent();
-            GestionBD.getInstance().NavAjoutTrajet = navAjouttrajet;
+            GestionBD.getInstance().IAjoutTrajet = iAjoutTrajet;
+            GestionBD.getInstance().IAjoutAdmin = iAjoutAdmin;
+            GestionBD.getInstance().IListeAdmin = iListeAdmin;
+            GestionBD.getInstance().IListeConducteur = iListeConducteur;
+            GestionBD.getInstance().IListePassager = iListePassager;
+            GestionBD.getInstance().IAjoutVille = iAjoutVille;
+            GestionBD.getInstance().IListeVille = iListeVille;
+            GestionBD.getInstance().IAjoutVoiture = iAjoutVoiture;
+            GestionBD.getInstance().IListeVoiture = iListeVoiture;
+
             tblHeader.Text = "Liste Trajet";
             mainFrame.Navigate(typeof(Afficher_Trajet));
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            if (connecter == "Admin")
-            {
-                navAjouttrajet.Visibility = Visibility.Visible;
-                iAjoutVille.Visibility = Visibility.Visible;
-                iAjoutAdmin.Visibility = Visibility.Visible;
-                iAjoutVoiture.Visibility = Visibility.Visible;
-                iListeAdmin.Visibility = Visibility.Visible;
-                iListeConducteur.Visibility = Visibility.Visible;
-                iListePassager.Visibility = Visibility.Visible;
-                iListeVoiture.Visibility = Visibility.Visible;
-                iListeVille.Visibility = Visibility.Visible;
-
-            }
             var item = (NavigationViewItem)args.SelectedItem;
 
             switch (item.Name)
@@ -106,8 +102,7 @@ namespace Projet_Final
                     mainFrame.Navigate(typeof(Connexion));
                     break;
                 case "iDeconnexion":
-                    connecter = "Personne";
-                    id = 0;
+                    GestionBD.getInstance().deconnexion();
                     mainFrame.Navigate(typeof(Connexion));
                     break;
                 default:
