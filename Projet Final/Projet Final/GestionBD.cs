@@ -398,8 +398,9 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into voiture values(@type_vehicule, @nb_place, @prix_passager) ";
+                commande.CommandText = "insert into voiture values(@id, @type_vehicule, @nb_place, @prix_passager) ";
 
+                commande.Parameters.AddWithValue("@id", v.Id);
                 commande.Parameters.AddWithValue("@type_vehicule", v.Type_vehicule);
                 commande.Parameters.AddWithValue("@nb_place", v.Nb_place);
                 commande.Parameters.AddWithValue("@prix_passager", v.Prix_passager);
