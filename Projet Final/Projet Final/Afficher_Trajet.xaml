@@ -9,6 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView x:Name="lvTrajet"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Button x:Name="reservation" Content="Réservé" Grid.Row="0" Grid.Column="1" Click="reservation_Click"/>
+        <ListView x:Name="lvTrajet" Grid.Row="1" Grid.Column="0"/>
     </Grid>
 </Page>

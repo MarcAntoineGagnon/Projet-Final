@@ -28,5 +28,13 @@ namespace Projet_Final
             this.InitializeComponent();
             lvTrajet.ItemsSource = GestionBD.getInstance().getTrajet();
         }
+
+        private void reservation_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.connecter == "Passager" && lvTrajet.SelectedIndex != -1)
+            {
+                GestionBD.getInstance().modifierPassager(lvTrajet.SelectedItem as Trajet, MainWindow.id);
+            }
+        }
     }
 }

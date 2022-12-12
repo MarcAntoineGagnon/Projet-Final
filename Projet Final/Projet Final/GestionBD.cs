@@ -470,7 +470,7 @@ namespace Projet_Final
 
             if(id != 0)
             {
-                MainWindow.connecter = "admin";
+                MainWindow.connecter = "Admin";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
@@ -509,7 +509,7 @@ namespace Projet_Final
 
             if (id != 0)
             {
-                MainWindow.connecter = "conducteur";
+                MainWindow.connecter = "Conducteur";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
@@ -548,17 +548,17 @@ namespace Projet_Final
 
             if (id != 0)
             {
-                MainWindow.connecter = "passager";
+                MainWindow.connecter = "Passager";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-                iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             }
 
             return id;
