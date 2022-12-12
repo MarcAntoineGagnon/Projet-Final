@@ -29,6 +29,7 @@ namespace Projet_Final
         public MainWindow()
         {
             this.InitializeComponent();
+            GestionBD.getInstance().NavAjoutTrajet = navAjouttrajet;
             tblHeader.Text = "Liste Trajet";
             mainFrame.Navigate(typeof(Afficher_Trajet));
         }
@@ -37,7 +38,7 @@ namespace Projet_Final
         {
             if (connecter == "Admin")
             {
-                iAjoutTrajet.Visibility = Visibility.Visible;
+                navAjouttrajet.Visibility = Visibility.Visible;
                 iAjoutVille.Visibility = Visibility.Visible;
                 iAjoutAdmin.Visibility = Visibility.Visible;
                 iAjoutVoiture.Visibility = Visibility.Visible;

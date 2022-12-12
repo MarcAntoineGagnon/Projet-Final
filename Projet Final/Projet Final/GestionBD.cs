@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.UI.Xaml.Controls;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,6 +14,9 @@ namespace Projet_Final
     {
         MySqlConnection con;
         static GestionBD gestionBD = null;
+        NavigationViewItem navAjoutTrajet;
+
+        public NavigationViewItem NavAjoutTrajet { get => navAjoutTrajet; set => navAjoutTrajet = value; }
 
         public GestionBD()
         {
@@ -449,6 +453,7 @@ namespace Projet_Final
             {
                 MainWindow.connecter = "admin";
                 MainWindow.id = id;
+                navAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
             }
 
             return id;

@@ -24,7 +24,7 @@
             <NavigationViewItem Name="iDeconnexion" Content="Déconnexion" Icon="Home" Foreground="Blue"/>
             <!-- TRAJET -->
             <NavigationViewItemHeader Content="Trajet"/>
-            <NavigationViewItem Name="iAjoutTrajet" Content="Ajout Trajet" Icon="Add" Foreground="Green" Visibility="Collapsed"/>
+            <NavigationViewItem x:Name="navAjouttrajet"  Content="Ajout Trajet" Icon="Add" Foreground="Green" Visibility="Collapsed"/>
             <NavigationViewItem Name="iListeTrajet" Content="Liste Trajets" Icon="List" Foreground="Blue"/>
             <!-- ADMIN -->
             <NavigationViewItemSeparator />
