@@ -230,11 +230,13 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into passager values(@id, @nom, @prenom, @telephone, @email, @password) ";
+                commande.CommandText = "insert into passager values(@id, @id_trajet, @nom, @prenom, @adresse, @telephone, @email, @password) ";
 
                 commande.Parameters.AddWithValue("@id", p.Id);
+                commande.Parameters.AddWithValue("@id_trajet", p.Id_trajet);
                 commande.Parameters.AddWithValue("@nom", p.Nom);
                 commande.Parameters.AddWithValue("@prenom", p.Prenom);
+                commande.Parameters.AddWithValue("@adresse", p.Adresse);
                 commande.Parameters.AddWithValue("@telephone", p.Telephone);
                 commande.Parameters.AddWithValue("@email", p.Email);
                 commande.Parameters.AddWithValue("@password", p.Password);
@@ -577,6 +579,53 @@ namespace Projet_Final
             iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             iListeVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+        }
+
+        //SECTION AUTRE
+        public int NbPlace(Trajet t)
+        {
+            int nb = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from voiture where id = @id";
+
+            commande.Parameters.AddWithValue("@id", t.Id_voiture);
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                nb = r.GetInt32(2);
+            }
+            r.Close();
+            con.Close();
+
+            return nb;
+        }
+
+        public int NbPassager(Trajet t)
+        {
+            int nb = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select count(id_trajet) from passager where id_trajet = @id";
+
+            commande.Parameters.AddWithValue("@id", t.Id);
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                nb = r.GetInt32(0);
+            }
+            r.Close();
+            con.Close();
+
+            return nb;
         }
 
 

@@ -31,9 +31,13 @@ namespace Projet_Final
 
         private void reservation_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.connecter == "Passager" && lvTrajet.SelectedIndex != -1)
+            Trajet t = lvTrajet.SelectedItem as Trajet;
+            int nb_place = GestionBD.getInstance().NbPlace(t);
+            int nb_passager = GestionBD.getInstance().NbPassager(t);
+
+            if (MainWindow.connecter == "Passager" && lvTrajet.SelectedIndex != -1 && nb_passager < nb_place)
             {
-                GestionBD.getInstance().modifierPassager(lvTrajet.SelectedItem as Trajet, MainWindow.id);
+                GestionBD.getInstance().modifierPassager(t, MainWindow.id);
             }
         }
     }

@@ -72,7 +72,7 @@ namespace Projet_Final
 
             if(erreur == 0)
             {
-                GestionBD.getInstance().ajouterTrajet(new Trajet(id, idC, idV, date, heureA, heureD, VilleA, VilleD, arret));
+                GestionBD.getInstance().ajouterTrajet(new Trajet(id, idV, idC, date, heureD, heureA, VilleD, VilleA, arret));
                 this.Frame.Navigate(typeof(Afficher_Trajet));
             }
         }
