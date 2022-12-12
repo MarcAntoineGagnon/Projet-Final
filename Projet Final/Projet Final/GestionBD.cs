@@ -291,8 +291,9 @@ namespace Projet_Final
             {
                 MySqlCommand commande = new MySqlCommand();
                 commande.Connection = con;
-                commande.CommandText = "insert into trajet values(@id_voiture, @id_conducteur, @date, @heure_depart, @heure_arrivee, @ville_depart, @ville_arrivee, @arret) ";
+                commande.CommandText = "insert into trajet values(@id, @id_voiture, @id_conducteur, @date, @heure_depart, @heure_arrivee, @ville_depart, @ville_arrivee, @arret) ";
 
+                commande.Parameters.AddWithValue("@id", t.Id);
                 commande.Parameters.AddWithValue("@id_voiture", t.Id_voiture);
                 commande.Parameters.AddWithValue("@id_conducteur", t.Id_conducteur);
                 commande.Parameters.AddWithValue("@date", t.Date);

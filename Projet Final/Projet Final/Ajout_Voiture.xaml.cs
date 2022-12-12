@@ -30,6 +30,8 @@ namespace Projet_Final
 
         private void btAjout_Click(object sender, RoutedEventArgs e)
         {
+            reset();
+
             int erreur = 0;
             string strID = tbID.Text;
             int id = 0;
