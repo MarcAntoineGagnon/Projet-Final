@@ -24,6 +24,7 @@ namespace Projet_Final
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        internal static string connecter = "";
         public MainWindow()
         {
             this.InitializeComponent();

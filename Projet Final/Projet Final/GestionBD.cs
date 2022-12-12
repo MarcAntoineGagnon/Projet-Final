@@ -421,5 +421,87 @@ namespace Projet_Final
             }
 
         }
+
+        //SECTION CONNEXION
+
+        public int connexionAdmin()
+        {
+            int id = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from admin where email like @email and password like  @password";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                id = r.GetInt32(0);
+            }
+            r.Close();
+            con.Close();
+
+            if(id != 0)
+            {
+                MainWindow.connecter = "admin";
+            }
+
+            return id;
+        }
+
+        public int connexionConducteur()
+        {
+            int id = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from conducteur where email like @email and password like  @password";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                id = r.GetInt32(0);
+            }
+            r.Close();
+            con.Close();
+
+            if (id != 0)
+            {
+                MainWindow.connecter = "conducteur";
+            }
+
+            return id;
+        }
+
+        public int connexionPassager()
+        {
+            int id = 0;
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from passager where email like @email and password like  @password";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                id = r.GetInt32(0);
+            }
+            r.Close();
+            con.Close();
+
+            if (id != 0)
+            {
+                MainWindow.connecter = "passager";
+            }
+
+            return id;
+        }
+
+
     }
 }
