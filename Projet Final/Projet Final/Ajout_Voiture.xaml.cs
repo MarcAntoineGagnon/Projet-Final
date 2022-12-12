@@ -27,5 +27,47 @@ namespace Projet_Final
         {
             this.InitializeComponent();
         }
+
+        private void btAjout_Click(object sender, RoutedEventArgs e)
+        {
+            int erreur = 0;
+            string strID = tbID.Text;
+            int id = 0;
+            Int32.TryParse(strID, out id);
+            string strNb_place = tbNb_place.Text;
+            int Nb_place = 0;
+            Int32.TryParse(strNb_place, out Nb_place);
+            string strPrix = tbPrix.Text;
+            int Prix_passager = 0;
+            Int32.TryParse(strPrix, out Prix_passager);
+            string Type_vehicule = tbType_vehicule.Text;
+
+            if (strID.Trim() == "" || id == 0) { erreur++; tblErrID.Visibility = Visibility.Visible; }
+
+            if (Type_vehicule.Trim() == "") { erreur++; tblErrType.Visibility = Visibility.Visible; }
+
+            if (strNb_place.Trim() == "" || Nb_place == 0) { erreur++; tblErrNb_place.Visibility = Visibility.Visible; }
+
+            if (strPrix.Trim() == "" || Prix_passager == 0) { erreur++; tblErrPrix.Visibility = Visibility.Visible; }
+
+            if (erreur == 0)
+            {
+                GestionBD.getInstance().ajouterVoiture(new Voiture(id, Type_vehicule, Nb_place, Prix_passager));
+                this.Frame.Navigate(typeof(Afficher_Voiture));
+            }
+
+        }
+
+        private void reset()
+        {
+            tblErrID.Visibility = Visibility.Collapsed;
+
+            tblErrType.Visibility = Visibility.Collapsed;
+            
+            tblErrNb_place.Visibility = Visibility.Collapsed;
+            
+            tblErrPrix.Visibility = Visibility.Collapsed;
+        }
     }
+    
 }

@@ -10,7 +10,7 @@
 
     <Grid>
         <ScrollViewer>
-            <Grid Background="LightBlue">
+            <Grid Background="DarkBlue">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="241*"/>
@@ -22,10 +22,10 @@
 
                 <StackPanel Grid.RowSpan="2">
 
-                <TextBox x:Name="tbID" Header="ID" Margin="10" PlaceholderText="Entrez le nom"/>
-                <TextBlock x:Name="tblErrID"  Text="vous devez ajouter un ID valide" Foreground="Red"  Visibility="Collapsed"/>
+                <TextBox x:Name="tbID" Header="ID" Margin="10" PlaceholderText="Entrez l'ID"/>
+                    <TextBlock x:Name="tblErrID"  Text="vous devez ajouter un ID valide" Foreground="Red"  Visibility="Collapsed"/>
 
-                <TextBox x:Name="tbNom" Header="Nom" Margin="10" PlaceholderText="Entrez le nom"/>
+                    <TextBox x:Name="tbNom" Header="Nom" Margin="10" PlaceholderText="Entrez le nom"/>
                 <TextBlock x:Name="tblErrNom"  Text="vous devez ajouter un Nom" Foreground="Red"  Visibility="Collapsed"/>
 
                 <TextBox x:Name="tbPrenom" Header="Prenom" Margin="10" PlaceholderText="Entrez le Prenom" />
@@ -44,7 +44,7 @@
                 <TextBlock x:Name="tblErrPassword"  Text="vous devez ajouter un password" Foreground="Red"  Visibility="Collapsed"/>
 
 
-                 <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="LightGray" Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+                 <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
             </StackPanel>
 
         </Grid>

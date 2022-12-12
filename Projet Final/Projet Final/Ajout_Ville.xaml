@@ -9,6 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBox x:Name="tbVille" Header="Ville" Margin="10 10 0 320" PlaceholderText="Entrez ville" />
+        <TextBlock x:Name="tblErrVille" Text="Vous devez ajouter une ville" Foreground="Red" Visibility="Collapsed" Margin="10" />
 
+        <Button Name="btAjout"  Content="Validez votre ajout" Background="Black" Foreground="White"
+                            Margin="20" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
     </Grid>
 </Page>

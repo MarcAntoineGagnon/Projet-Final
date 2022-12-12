@@ -27,5 +27,25 @@ namespace Projet_Final
         {
             this.InitializeComponent();
         }
+
+        private void btAjout_Click(object sender, RoutedEventArgs e)
+        {
+            int erreur = 0;
+            string Ville = tbVille.Text;
+
+            if (Ville.Trim() == "") { erreur++; tblErrVille.Visibility = Visibility.Visible; }
+
+            if (erreur == 0)
+            {
+                GestionBD.getInstance().ajouterVille(new Ville( Ville));
+                this.Frame.Navigate(typeof(Afficher_Conducteur));
+            }
+
+        }
+
+        private void reset()
+        {
+            tblErrVille.Visibility = Visibility.Collapsed;
+        }
+        }
     }
-}

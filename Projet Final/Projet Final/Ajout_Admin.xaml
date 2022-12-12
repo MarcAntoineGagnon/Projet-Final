@@ -13,6 +13,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+        <ScrollViewer>
         
         <StackPanel HorizontalAlignment="Stretch" Grid.Column="0">
             <TextBox x:Name="tbID" Header="ID" Margin="10" PlaceholderText="Entrez votre ID" />
@@ -30,7 +31,8 @@
             <TextBox x:Name="tbPassword" Header="Mot de passe" Margin="10" PlaceholderText="Entrez votre mot de passe" />
             <TextBlock x:Name="tblErrPassword"  Text="Vous devez mettre un mot de passe" Foreground="Red"  Visibility="Collapsed"/>
 
-            <Button Name="btAjout" Content="Validez votre ajout" Background="LightGray" Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+            <Button Name="btAjout" Content="Validez votre ajout" Background="Black" Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
         </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
