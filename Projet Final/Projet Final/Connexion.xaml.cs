@@ -30,7 +30,46 @@ namespace Projet_Final
 
         private void connexion_Click(object sender, RoutedEventArgs e)
         {
-            //test
+            Errconnexion.Visibility = Visibility.Collapsed;
+
+            string email = tbEmail.Text;
+            string password = tbPassword.Password.ToString();
+            int type = cbType.SelectedIndex;
+            int test = 0;
+
+            if(email != "" && password != "")
+            {
+                if (type == 0)
+                {
+                    test = GestionBD.getInstance().connexionAdmin(email, password);
+                    if (test != 0)
+                        this.Frame.Navigate(typeof(Afficher_Trajet));
+                    else
+                        Errconnexion.Visibility = Visibility.Visible;
+                }
+                    
+                if(type == 1)
+                {
+                    test = GestionBD.getInstance().connexionConducteur(email, password);
+                    if (test != 0)
+                        this.Frame.Navigate(typeof(Afficher_Trajet));
+                    else
+                        Errconnexion.Visibility = Visibility.Visible;
+                }
+                    
+                if (type == 2)
+                {
+                    test = GestionBD.getInstance().connexionPassager(email, password);
+                    if (test != 0)
+                        this.Frame.Navigate(typeof(Afficher_Trajet));
+                    else
+                        Errconnexion.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                Errconnexion.Visibility = Visibility.Visible;
+            }
         }
     }
 }

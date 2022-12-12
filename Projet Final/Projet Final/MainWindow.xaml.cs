@@ -24,7 +24,8 @@ namespace Projet_Final
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        internal static string connecter = "";
+        internal static string connecter = "Personne";
+        internal static int id = 0;
         public MainWindow()
         {
             this.InitializeComponent();

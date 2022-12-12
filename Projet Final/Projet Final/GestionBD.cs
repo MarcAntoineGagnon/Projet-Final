@@ -424,13 +424,16 @@ namespace Projet_Final
 
         //SECTION CONNEXION
 
-        public int connexionAdmin()
+        public int connexionAdmin(string email, string password)
         {
             int id = 0;
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
             commande.CommandText = "Select * from admin where email like @email and password like  @password";
+
+            commande.Parameters.AddWithValue("@email", email);
+            commande.Parameters.AddWithValue("@password", password);
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -445,18 +448,22 @@ namespace Projet_Final
             if(id != 0)
             {
                 MainWindow.connecter = "admin";
+                MainWindow.id = id;
             }
 
             return id;
         }
 
-        public int connexionConducteur()
+        public int connexionConducteur(string email, string password)
         {
             int id = 0;
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
             commande.CommandText = "Select * from conducteur where email like @email and password like  @password";
+
+            commande.Parameters.AddWithValue("@email", email);
+            commande.Parameters.AddWithValue("@password", password);
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -471,18 +478,22 @@ namespace Projet_Final
             if (id != 0)
             {
                 MainWindow.connecter = "conducteur";
+                MainWindow.id = id;
             }
 
             return id;
         }
 
-        public int connexionPassager()
+        public int connexionPassager(string email, string password)
         {
             int id = 0;
 
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
             commande.CommandText = "Select * from passager where email like @email and password like  @password";
+
+            commande.Parameters.AddWithValue("@email", email);
+            commande.Parameters.AddWithValue("@password", password);
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -497,6 +508,7 @@ namespace Projet_Final
             if (id != 0)
             {
                 MainWindow.connecter = "passager";
+                MainWindow.id = id;
             }
 
             return id;
