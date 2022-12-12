@@ -34,5 +34,11 @@
         
         <PasswordBox x:Name="mdp" PlaceholderText="Mot de passe" Grid.Row="3" Grid.Column="3" Password=""/>
         <Button x:Name="connexion" Grid.Row="5" Grid.Column="1" Content="Connexion" Click="connexion_Click"/>
+
+        <ComboBox Text="Type d'usager" Grid.Column="5" Grid.Row="3">
+            <ComboBoxItem Content="Admin"/>
+            <ComboBoxItem Content="Conducteur"/>
+            <ComboBoxItem Content="Passager"/>
+        </ComboBox>
     </Grid>
 </Page>
