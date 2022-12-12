@@ -35,6 +35,19 @@ namespace Projet_Final
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
+            if (connecter == "Admin")
+            {
+                iAjoutTrajet.Visibility = Visibility.Visible;
+                iAjoutVille.Visibility = Visibility.Visible;
+                iAjoutAdmin.Visibility = Visibility.Visible;
+                iAjoutVoiture.Visibility = Visibility.Visible;
+                iListeAdmin.Visibility = Visibility.Visible;
+                iListeConducteur.Visibility = Visibility.Visible;
+                iListePassager.Visibility = Visibility.Visible;
+                iListeVoiture.Visibility = Visibility.Visible;
+                iListeVille.Visibility = Visibility.Visible;
+
+            }
             var item = (NavigationViewItem)args.SelectedItem;
 
             switch (item.Name)
@@ -94,6 +107,7 @@ namespace Projet_Final
                 case "iDeconnexion":
                     connecter = "Personne";
                     id = 0;
+                    mainFrame.Navigate(typeof(Connexion));
                     break;
                 default:
                     break;
