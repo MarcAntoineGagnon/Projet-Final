@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Projet_Final.Afficher_Passager"
+    x:Class="Projet_Final.Afficher_Voiture"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Projet_Final"
@@ -9,7 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <ListView x:Name="lvPassager"/>
+        <ListView x:Name="lvVoiture"/>
     </Grid>
-
 </Page>

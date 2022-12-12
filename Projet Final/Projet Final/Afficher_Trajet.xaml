@@ -9,32 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
-        <ScrollViewer>
-            <GridView>
-                <Grid Margin="0 0 10 10"  Background="DarkBlue">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="150"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="0.5*"/>
-                    </Grid.RowDefinitions>
-
-                    <TextBlock Text="Ville Départ : " Grid.Row="1" Grid.Column="1"/>
-                    <TextBlock Name="tbNumero" Text="Test M" Grid.Row="1" Grid.Column="2"/>
-
-                    <TextBlock Text="Ville d'Arrivé : " Grid.Row="2" Grid.Column="1"/>
-                    <TextBlock Name="tbDebut" Text="Test N" Grid.Row="2" Grid.Column="2"/>
-
-                </Grid>
-            </GridView>
-        </ScrollViewer>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Button x:Name="reservation" Content="Réservé" Grid.Row="0" Grid.Column="1" Click="reservation_Click"/>
+        <ListView x:Name="lvTrajet" Grid.Row="1" Grid.Column="0"/>
     </Grid>
 </Page>

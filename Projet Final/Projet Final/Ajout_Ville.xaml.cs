@@ -21,12 +21,31 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_Conducteur : Page
+    public sealed partial class Ajout_Ville : Page
     {
-        public Afficher_Conducteur()
+        public Ajout_Ville()
         {
             this.InitializeComponent();
-            lvConducteur.ItemsSource = GestionBD.getInstance().getConducteur();
+        }
+
+        private void btAjout_Click(object sender, RoutedEventArgs e)
+        {
+            int erreur = 0;
+            string Ville = tbVille.Text;
+
+            if (Ville.Trim() == "") { erreur++; tblErrVille.Visibility = Visibility.Visible; }
+
+            if (erreur == 0)
+            {
+                GestionBD.getInstance().ajouterVille(new Ville( Ville));
+                this.Frame.Navigate(typeof(Afficher_Conducteur));
+            }
+
+        }
+
+        private void reset()
+        {
+            tblErrVille.Visibility = Visibility.Collapsed;
+        }
         }
     }
-}

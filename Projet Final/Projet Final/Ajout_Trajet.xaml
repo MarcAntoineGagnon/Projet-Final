@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <ScrollViewer>
             <Grid Background="DarkGreen">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
@@ -20,22 +21,38 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.RowSpan="2">
-               <!--     <TextBlock Text="Ajouter un Trajet" FontSize="30" VariableSizedWrapGrid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Margin="20"/>
--->
+               
+                    <TextBox x:Name="tbId" Header="Id " Margin="10" PlaceholderText="Entrez l'Id"/>
+                    <TextBlock x:Name="tblErreurId"  Text="vous devez ajouter l'Id" Foreground="Red"  Visibility="Collapsed"/>
 
-                    <!--<TextBox x:Name="tbIdConducteur" Header="Id conducteur" Margin="10" PlaceholderText="Entrez l'Id du conducteur"/>
-                    <TextBlock x:Name="tblErreurIdConducteur"  Text="vous devez ajouter l'Id du conducteur" Foreground="Red"  Visibility="Collapsed"/>-->
+                    <TextBox x:Name="tbIdVoiture" Header="Id voiture" Margin="10" PlaceholderText="Entrez l'Id de la voiture"/>
+                    <TextBlock x:Name="tblErreurIdVoiture"  Text="vous devez ajouter l'Id de la voiture" Foreground="Red"  Visibility="Collapsed"/>
 
-                    <TextBox x:Name="tbVilleDep" Header="Ville départ" Margin="10" PlaceholderText="Entrez la Ville de départ" />
-                    <TextBlock x:Name="tblErreurVilleDep"  Text="vous devez ajouter la Ville de départ" Foreground="Red"  Visibility="Collapsed"/>
+                    <TextBox x:Name="tbIdConducteur" Header="Id conducteur" Margin="10" PlaceholderText="Entrez l'Id du conducteur"/>
+                    <TextBlock x:Name="tblErreurIdConducteur"  Text="vous devez ajouter l'Id du conducteur" Foreground="Red"  Visibility="Collapsed"/>
 
-                    <TextBox x:Name="tbVilleArr" Header="Ville d'arrivé" Margin="10" PlaceholderText="Entrez la ville d'arrivé" />
-                    <TextBlock x:Name="tblErreurVilleArr"  Text="vous devez ajouter la ville d'arrivé" Foreground="Red"  Visibility="Collapsed"/>
+                    <DatePicker x:Name="dtDate" Header="Date" Margin="10"/>
+                    <TextBlock x:Name="tbErreurDate" Text="Vous devez sélectionner une date" Foreground="Red" Visibility="Collapsed"/>
 
-                    <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Background="Black" Foreground="White"
-                 Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+                    <TimePicker    x:Name="tpHeure_Dep" Header="Heure départ" Margin="10"/>
+                    <TextBlock    x:Name="tbErreurHeure_Dep" Text="Vous devez sélectionner une heure de départ" Foreground="Red" Visibility="Collapsed"/>
+
+                    <TimePicker    x:Name="tpHeure_Arr" Header="Heure arrivée" Margin="10"/>
+                    <TextBlock    x:Name="tbErreurHeure_Arr" Text="Vous devez sélectionner une heure d'arrivée" Foreground="Red" Visibility="Collapsed"/>
+
+                    <ComboBox x:Name="cbDepart" Header="Ville Départ"/>
+                    <TextBlock x:Name="tblErreurVille_Dep"  Text="vous devez ajouter la Ville de départ" Foreground="Red"  Visibility="Collapsed"/>
+
+                    <ComboBox x:Name="cbArrivee" Header="Ville Arrivée"/>
+                    <TextBlock x:Name="tblErreurDestination"  Text="vous devez ajouter la déstination" Foreground="Red"  Visibility="Collapsed"/>
+
+                    <TextBlock Text="Arrêt" Margin="10"/>
+                    <CheckBox x:Name="cbArret" Margin="20 0 0 0"/>
+
+                    <Button Name="btAjout" Grid.Row="7" Grid.Column="1" Content="Validez votre ajout" Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
                 </StackPanel>
 
             </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

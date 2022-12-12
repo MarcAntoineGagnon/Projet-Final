@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="Projet_Final.Ajout_Voiture"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Projet_Final"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="241*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tbID" Header="ID" Grid.Row="0" Margin="10" PlaceholderText="Entrez ID" />
+        <TextBlock x:Name="tblErrID"  Text="Vous devez ajouter l'ID" Foreground="Red" Visibility="Collapsed" Margin="10" />
+
+        <TextBox x:Name="tbType_vehicule" Grid.Row="1" Header="Type vehicule" Margin="10" PlaceholderText="Entrez le type du vehicule" />
+        <TextBlock x:Name="tblErrType"  Text="Vous devez ajouter un type de vehicule" Foreground="Red" Visibility="Collapsed" Margin="10" />
+        
+        <TextBox x:Name="tbNb_place" Grid.Row="2" Header="Nombre de place" Margin="10" PlaceholderText="Entrez le nombre de place disponible" />
+        <TextBlock x:Name="tblErrNb_place"  Text="Vous devez ajouter un nombre de place" Foreground="Red" Visibility="Collapsed" Margin="10" />
+        
+        <TextBox x:Name="tbPrix" Grid.Row="3" Header="Prix par passager" Margin="10" PlaceholderText="Entrez le prix par passager" />
+        <TextBlock x:Name="tblErrPrix"  Text="Vous devez ajouter le prix par passager" Foreground="Red" Visibility="Collapsed" Margin="10" />
+
+        <Button Name="btAjout" Grid.Row="4"  Content="Validez votre ajout" Background="Black" Foreground="White"
+                            Margin="30" Width="200" HorizontalAlignment="Stretch" Click="btAjout_Click"/>
+    </Grid>
+</Page>

@@ -21,12 +21,12 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_Conducteur : Page
+    public sealed partial class Afficher_Admin : Page
     {
-        public Afficher_Conducteur()
+        public Afficher_Admin()
         {
             this.InitializeComponent();
-            lvConducteur.ItemsSource = GestionBD.getInstance().getConducteur();
+            lvAdmin.ItemsSource = GestionBD.getInstance().getAdmin();
         }
     }
 }
