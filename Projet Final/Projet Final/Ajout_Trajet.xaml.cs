@@ -42,9 +42,9 @@ namespace Projet_Final
             int idC = 0 ;
             string strIDC = tbIdConducteur.Text;
             Int32.TryParse(strIDC, out idC);
-            string date = dtDate.SelectedDate.Value.ToString("yyyy/MM/dd").Trim();
-            string heureD = tpHeure_Dep.SelectedTime.Value.ToString().Trim();
-            string heureA = tpHeure_Arr.SelectedTime.Value.ToString().Trim();
+            string date = dtDate.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
+            string heureD = tpHeure_Dep.SelectedTime.Value.ToString().Trim();      //ICI
+            string heureA = tpHeure_Arr.SelectedTime.Value.ToString().Trim();      //ICI
             string VilleD = cbDepart.SelectedValue.ToString();
             string VilleA = cbArrivee.SelectedValue.ToString();
             bool arret;

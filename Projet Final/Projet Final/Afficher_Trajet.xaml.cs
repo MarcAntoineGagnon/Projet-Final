@@ -73,10 +73,10 @@ namespace Projet_Final
         {
             reset();
             int erreur = 0;
-            string date1 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim();
-            string date2 = dtDate2.SelectedDate.Value.ToString("yyyy/MM/dd").Trim();
+            string date1 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
+            string date2 = dtDate2.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
 
-            if(date1 == "")
+            if (date1 == "")
             {
                 erreur++;
                 tbErreurDate1.Visibility = Visibility.Visible;
