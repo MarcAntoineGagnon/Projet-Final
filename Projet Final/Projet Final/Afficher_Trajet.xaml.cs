@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.VisualBasic;
 using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,37 @@ namespace Projet_Final
             }
 
 
+        }
+
+        private async void RechercheTrajet(object sender, RoutedEventArgs e)
+        {
+            reset();
+            int erreur = 0;
+            string date1 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim();
+            string date2 = dtDate2.SelectedDate.Value.ToString("yyyy/MM/dd").Trim();
+
+            if(date1 == "")
+            {
+                erreur++;
+                tbErreurDate1.Visibility = Visibility.Visible;
+            }
+            if(date2 == "")
+            {
+                erreur++;
+                tbErreurDate2.Visibility = Visibility.Visible;
+            }
+            if(erreur == 0)
+            {
+                reset();
+                lvTrajet.ItemsSource = GestionBD.getInstance().RechercheTrajet(date1, date2);
+            }
+            
+        }
+
+        public void reset()
+        {
+            tbErreurDate1.Visibility = Visibility.Collapsed;
+            tbErreurDate2.Visibility = Visibility.Collapsed;
         }
     }
 }

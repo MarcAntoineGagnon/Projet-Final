@@ -406,6 +406,30 @@ namespace Projet_Final
             return liste;
         }
 
+        public ObservableCollection<Trajet> RechercheTrajet(string d1, string d2)
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajet WHERE date BETWEEN @date1 AND @date2";
+
+            commande.Parameters.AddWithValue("@date1", d1);
+            commande.Parameters.AddWithValue("@date2", d2);
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Trajet(r.GetInt32(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7), r.GetBoolean(8)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
         public int ajouterTrajet(Trajet t)
         {
             int retour = 0;

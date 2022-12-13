@@ -11,17 +11,32 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="CSV" Content="Fichier CSV" Grid.Row="0" Grid.Column="2" Click="CSV_Click"/>
-        <TextBlock x:Name="totalCompagnie" Grid.Row="2" Grid.Column="2"/>
-        <ListView x:Name="lvTrajet" Grid.Row="1" Grid.Column="0"/>
+
+        <TextBlock x:Name="titre" Text="Trajet :"           Grid.Row="2" Grid.Column="0"/>
+        <ListView x:Name="lvTrajet"                         Grid.Row="3" Grid.Column="0"/>
+
+        <StackPanel Grid.Row="0" Grid.Column="2">
+            <DatePicker x:Name="dtDate1" Header="Date début"/>
+            <TextBlock x:Name="tbErreurDate1" Text="Vous devez sélectionner une date" Foreground="Red" Visibility="Collapsed"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <DatePicker x:Name="dtDate2" Header="Date fin"/>
+            <TextBlock x:Name="tbErreurDate2" Text="Vous devez sélectionner une date" Foreground="Red" Visibility="Collapsed"/>
+        </StackPanel>
+        <Button x:Name="Recherche" Content="Recherche"      Grid.Row="2" Grid.Column="2" Click="RechercheTrajet"/>
+        <Button x:Name="CSV" Content="Fichier CSV"          Grid.Row="0" Grid.Column="0" Click="CSV_Click"/>
+        <TextBlock x:Name="totalCompagnie"                  Grid.Row="1" Grid.Column="0"/>
     </Grid>
 </Page>
