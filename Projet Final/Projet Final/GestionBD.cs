@@ -631,6 +631,27 @@ namespace Projet_Final
             return nb;
         }
 
+        public string TotalCompagnie()
+        {
+            string total = "0";
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "select left(sum(argent)*(20/100)/(80/100),4) from conducteur";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                total = r.GetString(0);
+            }
+            r.Close();
+            con.Close();
+
+            return  "Total revenu compagnie : " + total + "$";
+        }
+
 
     }
 }

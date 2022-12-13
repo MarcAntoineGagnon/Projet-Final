@@ -30,6 +30,10 @@ namespace Projet_Final
         {
             this.InitializeComponent();
             lvTrajet.ItemsSource = GestionBD.getInstance().getTrajet();
+            if(MainWindow.connecter == "Admin")
+            {
+                totalCompagnie.Text = GestionBD.getInstance().TotalCompagnie();
+            }
         }
 
         private void reservation_Click(object sender, RoutedEventArgs e)
@@ -46,25 +50,29 @@ namespace Projet_Final
 
         private async void CSV_Click(object sender, RoutedEventArgs e)
         {
-            var picker = new Windows.Storage.Pickers.FileSavePicker();
+            if(MainWindow.connecter == "Admin")
+            {
+                var picker = new Windows.Storage.Pickers.FileSavePicker();
 
-            /******************** POUR WINUI3 ***************************/
-            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(GestionBD.getInstance().Fenetre);
-            WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
-            /************************************************************/
+                /******************** POUR WINUI3 ***************************/
+                var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(GestionBD.getInstance().Fenetre);
+                WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
+                /************************************************************/
 
-            picker.SuggestedFileName = "trajet liste";
-            picker.FileTypeChoices.Add("Fichier csv", new List<string>() { ".csv" });
+                picker.SuggestedFileName = "trajet liste";
+                picker.FileTypeChoices.Add("Fichier csv", new List<string>() { ".csv" });
 
-            //crée le fichier
-            Windows.Storage.StorageFile monFichier = await picker.PickSaveFileAsync();
+                //crée le fichier
+                Windows.Storage.StorageFile monFichier = await picker.PickSaveFileAsync();
 
-            var liste = lvTrajet.ItemsSource as ObservableCollection<Trajet>;
-            var l = liste.ToList();
+                var liste = lvTrajet.ItemsSource as ObservableCollection<Trajet>;
+                var l = liste.ToList();
 
-            // La fonction ToString de la classe Client retourne: nom + ";" + prenom
+                // La fonction ToString de la classe Client retourne: nom + ";" + prenom
 
-            await Windows.Storage.FileIO.WriteLinesAsync(monFichier, l.ConvertAll(x => x.CSV()), Windows.Storage.Streams.UnicodeEncoding.Utf8);
+                await Windows.Storage.FileIO.WriteLinesAsync(monFichier, l.ConvertAll(x => x.CSV()), Windows.Storage.Streams.UnicodeEncoding.Utf8);
+            }
+
 
         }
     }
