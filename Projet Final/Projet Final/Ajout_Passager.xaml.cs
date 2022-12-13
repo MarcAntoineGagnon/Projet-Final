@@ -65,7 +65,7 @@ namespace Projet_Final
             if (erreur == 0)
             {
                 GestionBD.getInstance().ajouterPassager(new Passager(id, id_trajet, nom, prenom, adresse, telephone, email, password));
-                this.Frame.Navigate(typeof(Afficher_Conducteur));
+                this.Frame.Navigate(typeof(Afficher_Passager));
             }
         }
 

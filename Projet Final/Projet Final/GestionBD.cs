@@ -613,8 +613,8 @@ namespace Projet_Final
                 MainWindow.connecter = "Conducteur";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
-                iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
-                iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
@@ -674,6 +674,8 @@ namespace Projet_Final
             MainWindow.connecter = "Personne";
             MainWindow.id = 0;
             iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+            iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
             iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
