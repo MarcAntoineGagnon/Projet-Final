@@ -42,11 +42,61 @@ namespace Projet_Final
             int idC = 0 ;
             string strIDC = tbIdConducteur.Text;
             Int32.TryParse(strIDC, out idC);
-            string date = dtDate.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
-            string heureD = tpHeure_Dep.SelectedTime.Value.ToString().Trim();      //ICI
-            string heureA = tpHeure_Arr.SelectedTime.Value.ToString().Trim();      //ICI
-            string VilleD = cbDepart.SelectedValue.ToString();
-            string VilleA = cbArrivee.SelectedValue.ToString();
+            string date = "";
+            string heureD = "";
+            string heureA = "";
+            string VilleD = "";
+            string VilleA = "";
+            try
+            {
+                date = dtDate.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
+            }
+
+            catch (InvalidOperationException ex)
+            {
+                erreur++; tbErreurDate.Visibility = Visibility.Visible;
+            }
+            try
+            {
+                heureD = tpHeure_Dep.SelectedTime.Value.ToString().Trim();      //ICI
+            }
+
+            catch (InvalidOperationException ex)
+            {
+                erreur++; tbErreurHeure_Dep.Visibility = Visibility.Visible;
+            }
+
+            try
+            {
+                heureA = tpHeure_Arr.SelectedTime.Value.ToString().Trim();      //ICI
+            }
+            catch (InvalidOperationException ex)
+            {
+                erreur++; tbErreurHeure_Arr.Visibility = Visibility.Visible;
+            }
+
+            try
+            {
+                VilleD = cbDepart.SelectedValue.ToString();
+            }
+            catch (InvalidOperationException ex)
+            {
+                erreur++; tblErreurVille_Dep.Visibility = Visibility.Visible;
+            }
+
+            try
+            {
+                VilleA = cbArrivee.SelectedValue.ToString();
+            }
+            catch (InvalidOperationException ex)
+            {
+                erreur++; tblErreurDestination.Visibility = Visibility.Visible;
+            }
+
+            
+
+            
+
             bool arret;
             if (cbArret.IsChecked == true)
                 arret = true;
@@ -58,17 +108,6 @@ namespace Projet_Final
             if (idV == 0 || strIDC == ""){ erreur++; tblErreurIdConducteur.Visibility = Visibility.Visible; }
 
             if (idC == 0 || strIDV == ""){ erreur++; tblErreurIdVoiture.Visibility = Visibility.Visible; }
-
-            if (date == ""){ erreur++; tbErreurDate.Visibility = Visibility.Visible; }
-
-            if (heureD == ""){ erreur++; tbErreurHeure_Dep.Visibility = Visibility.Visible; }
-
-            if (heureA == ""){ erreur++; tbErreurHeure_Arr.Visibility = Visibility.Visible; }
-
-            if (VilleD == "" || cbDepart.SelectedIndex == -1){ erreur++; tblErreurVille_Dep.Visibility = Visibility.Visible; }
-
-            if (VilleA == "" || cbArrivee.SelectedIndex == -1) { erreur++; tblErreurDestination.Visibility = Visibility.Visible; }
-
 
             if(erreur == 0)
             {

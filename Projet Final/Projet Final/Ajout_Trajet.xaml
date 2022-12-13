@@ -40,10 +40,10 @@
                     <TimePicker    x:Name="tpHeure_Arr" Header="Heure arrivée" Margin="10"/>
                     <TextBlock    x:Name="tbErreurHeure_Arr" Text="Vous devez sélectionner une heure d'arrivée" Foreground="Red" Visibility="Collapsed"/>
 
-                    <ComboBox x:Name="cbDepart" Header="Ville Départ"/>
+                    <ComboBox x:Name="cbDepart" Header="Ville Départ" SelectedIndex="0"/>
                     <TextBlock x:Name="tblErreurVille_Dep"  Text="vous devez ajouter la Ville de départ" Foreground="Red"  Visibility="Collapsed"/>
 
-                    <ComboBox x:Name="cbArrivee" Header="Ville Arrivée"/>
+                    <ComboBox x:Name="cbArrivee" Header="Ville Arrivée" SelectedIndex="1"/>
                     <TextBlock x:Name="tblErreurDestination"  Text="vous devez ajouter la déstination" Foreground="Red"  Visibility="Collapsed"/>
 
                     <TextBlock Text="Arrêt" Margin="10"/>

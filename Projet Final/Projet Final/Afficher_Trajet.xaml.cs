@@ -73,19 +73,28 @@ namespace Projet_Final
         {
             reset();
             int erreur = 0;
-            string date1 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
-            string date2 = dtDate2.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
-
-            if (date1 == "")
+            string date1 = "";
+            string date2 = "";
+            try
+            {
+                date1 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
+            }
+            catch(InvalidOperationException ex)
             {
                 erreur++;
                 tbErreurDate1.Visibility = Visibility.Visible;
             }
-            if(date2 == "")
+
+            try
+            {
+                date2 = dtDate1.SelectedDate.Value.ToString("yyyy/MM/dd").Trim(); //ICI
+            }
+            catch (InvalidOperationException ex)
             {
                 erreur++;
-                tbErreurDate2.Visibility = Visibility.Visible;
+                tbErreurDate1.Visibility = Visibility.Visible;
             }
+
             if(erreur == 0)
             {
                 reset();
