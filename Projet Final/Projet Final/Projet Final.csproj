@@ -16,6 +16,8 @@
     <None Remove="Afficher_Conducteur.xaml" />
     <None Remove="Afficher_Passager.xaml" />
     <None Remove="Afficher_Trajet.xaml" />
+    <None Remove="Afficher_TrajetAV.xaml" />
+    <None Remove="Afficher_TrajetEC.xaml" />
     <None Remove="Afficher_Ville.xaml" />
     <None Remove="Afficher_Voiture.xaml" />
     <None Remove="Ajout_Admin.xaml" />
@@ -51,6 +53,16 @@
   -->
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Afficher_TrajetAV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Afficher_TrajetEC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Ajout_Voiture.xaml">

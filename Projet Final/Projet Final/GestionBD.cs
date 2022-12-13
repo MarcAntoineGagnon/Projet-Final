@@ -16,6 +16,8 @@ namespace Projet_Final
         MySqlConnection con;
         static GestionBD gestionBD = null;
         NavigationViewItem iAjoutTrajet;
+        NavigationViewItem iListeTrajetEC;
+        NavigationViewItem iListeTrajetAV;
         NavigationViewItem iAjoutAdmin;
         NavigationViewItem iListeAdmin;
         NavigationViewItem iListeConducteur;
@@ -28,6 +30,10 @@ namespace Projet_Final
 
         public MainWindow Fenetre { get => fenetre; set => fenetre = value; }
         public NavigationViewItem IAjoutTrajet { get => iAjoutTrajet; set => iAjoutTrajet = value; }
+
+        public NavigationViewItem IlisteTrajetEC { get => iListeTrajetEC; set => iListeTrajetEC = value; }
+
+        public NavigationViewItem IlisteTrajetAV { get => iListeTrajetAV; set => iListeTrajetAV = value; }
 
         public NavigationViewItem IAjoutAdmin { get => iAjoutAdmin; set => iAjoutAdmin = value; }
 
@@ -226,6 +232,29 @@ namespace Projet_Final
             return liste;
         }
 
+        public ObservableCollection<Passager> getPassagerConducteur(int id)
+        {
+            ObservableCollection<Passager> liste = new ObservableCollection<Passager>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "SELECT passager.* FROM passager INNER JOIN trajet t on passager.id_trajet = t.id INNER JOIN conducteur c on t.id_conducteur = c.id WHERE c.id = @id_conducteur AND t.id = passager.id_trajet";
+
+            commande.Parameters.AddWithValue("@id_conducteur", id);
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Passager(r.GetInt32(0), r.GetInt32(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
         public int ajouterPassager(Passager p)
         {
             int retour = 0;
@@ -298,6 +327,71 @@ namespace Projet_Final
             MySqlCommand commande = new MySqlCommand();
             commande.Connection = con;
             commande.CommandText = "Select * from trajet";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Trajet(r.GetInt32(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7), r.GetBoolean(8)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Trajet> getTrajetEC()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajet where heure_depart <= CURTIME() AND heure_arrivee >= CURTIME() AND date LIKE CURDATE();";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Trajet(r.GetInt32(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7), r.GetBoolean(8)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Trajet> getTrajetAV()
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajet where heure_depart >= CURTIME() AND date <= CURDATE();";
+
+            con.Open();
+            MySqlDataReader r = commande.ExecuteReader();
+
+            while (r.Read())
+            {
+                liste.Add(new Trajet(r.GetInt32(0), r.GetInt32(1), r.GetInt32(2), r.GetString(3), r.GetString(4), r.GetString(5), r.GetString(6), r.GetString(7), r.GetBoolean(8)));
+            }
+            r.Close();
+            con.Close();
+
+            return liste;
+        }
+
+        public ObservableCollection<Trajet> getTrajetConducteur(int C)
+        {
+            ObservableCollection<Trajet> liste = new ObservableCollection<Trajet>();
+
+            MySqlCommand commande = new MySqlCommand();
+            commande.Connection = con;
+            commande.CommandText = "Select * from trajet where id_conducteur = @id_conducteur";
+
+            commande.Parameters.AddWithValue("@id_conducteur", C);
 
             con.Open();
             MySqlDataReader r = commande.ExecuteReader();
@@ -478,6 +572,8 @@ namespace Projet_Final
                 MainWindow.connecter = "Admin";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
@@ -517,10 +613,12 @@ namespace Projet_Final
                 MainWindow.connecter = "Conducteur";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
-                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
@@ -556,10 +654,12 @@ namespace Projet_Final
                 MainWindow.connecter = "Passager";
                 MainWindow.id = id;
                 iAjoutTrajet.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeTrajetEC.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
+                iListeTrajetAV.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
                 iAjoutAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeAdmin.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeConducteur.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
-                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Visible;
+                iListePassager.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iListeVille.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;
                 iAjoutVoiture.Visibility = Microsoft.UI.Xaml.Visibility.Collapsed;

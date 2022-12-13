@@ -30,6 +30,8 @@ namespace Projet_Final
         {
             this.InitializeComponent();
             GestionBD.getInstance().IAjoutTrajet = iAjoutTrajet;
+            GestionBD.getInstance().IlisteTrajetEC = iListeTrajetEC;
+            GestionBD.getInstance().IlisteTrajetAV = iListeTrajetAV;
             GestionBD.getInstance().IAjoutAdmin = iAjoutAdmin;
             GestionBD.getInstance().IListeAdmin = iListeAdmin;
             GestionBD.getInstance().IListeConducteur = iListeConducteur;
@@ -55,8 +57,16 @@ namespace Projet_Final
                     mainFrame.Navigate(typeof(Ajout_Trajet));
                     break;
                 case "iListeTrajet":
-                    tblHeader.Text = "Liste Trajet";
+                    tblHeader.Text = "Historique des Trajets";
                     mainFrame.Navigate(typeof(Afficher_Trajet));
+                    break;
+                case "iListeTrajetEC":
+                    tblHeader.Text = "Liste Trajet En Cours";
+                    mainFrame.Navigate(typeof(Afficher_TrajetEC));
+                    break;
+                case "iListeTrajetAV":
+                    tblHeader.Text = "Liste Trajet À Venir";
+                    mainFrame.Navigate(typeof(Afficher_TrajetAV));
                     break;
                 case "iListeAdmin":
                     tblHeader.Text = "Liste Administrateur";

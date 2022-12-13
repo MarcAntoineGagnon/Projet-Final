@@ -21,15 +21,23 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_Passager : Page
+    public sealed partial class Afficher_TrajetAV : Page
     {
-        public Afficher_Passager()
+        public Afficher_TrajetAV()
         {
             this.InitializeComponent();
-            lvPassager.ItemsSource = GestionBD.getInstance().getPassager();
-            if(MainWindow.connecter == "Conducteur")
+            lvTrajetAV.ItemsSource = GestionBD.getInstance().getTrajetAV();
+        }
+
+        private void reservation_Click(object sender, RoutedEventArgs e)
+        {
+            Trajet t = lvTrajetAV.SelectedItem as Trajet;
+            int nb_place = GestionBD.getInstance().NbPlace(t);
+            int nb_passager = GestionBD.getInstance().NbPassager(t);
+
+            if (MainWindow.connecter == "Passager" && lvTrajetAV.SelectedIndex != -1 && nb_passager < nb_place)
             {
-                lvPassager.ItemsSource = GestionBD.getInstance().getPassagerConducteur(MainWindow.id);
+                GestionBD.getInstance().modifierPassager(t, MainWindow.id);
             }
         }
     }

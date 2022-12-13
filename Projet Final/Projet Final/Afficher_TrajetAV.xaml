@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Projet_Final.Afficher_Trajet"
+    x:Class="Projet_Final.Afficher_TrajetAV"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Projet_Final"
@@ -16,12 +16,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="CSV" Content="Fichier CSV" Grid.Row="0" Grid.Column="2" Click="CSV_Click"/>
-        <TextBlock x:Name="totalCompagnie" Grid.Row="2" Grid.Column="2"/>
-        <ListView x:Name="lvTrajet" Grid.Row="1" Grid.Column="0"/>
+        <ListView x:Name="lvTrajetAV" Grid.Row="1" Grid.Column="0"/>
+        <Button x:Name="reservation" Content="Réservé" Grid.Row="0" Grid.Column="1" Click="reservation_Click"/>
     </Grid>
 </Page>

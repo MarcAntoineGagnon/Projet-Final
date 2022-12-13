@@ -25,7 +25,9 @@
             <!-- TRAJET -->
             <NavigationViewItemHeader Content="Trajet"/>
             <NavigationViewItem x:Name="iAjoutTrajet"  Content="Ajout Trajet" Icon="Add" Foreground="Green" Visibility="Collapsed"/>
-            <NavigationViewItem Name="iListeTrajet" Content="Liste Trajets" Icon="List" Foreground="Blue"/>
+            <NavigationViewItem Name="iListeTrajet" Content="Historique Trajets" Icon="List" Foreground="Blue"/>
+            <NavigationViewItem Name="iListeTrajetEC" Content="Liste Trajets En Cours" Icon="List" Foreground="Blue" Visibility="Collapsed"/>
+            <NavigationViewItem Name="iListeTrajetAV" Content="Liste Trajets À Venir" Icon="List" Foreground="Blue" Visibility="Collapsed"/>
             <!-- ADMIN -->
             <NavigationViewItemSeparator />
             <NavigationViewItemHeader Content="Administrateur"/>

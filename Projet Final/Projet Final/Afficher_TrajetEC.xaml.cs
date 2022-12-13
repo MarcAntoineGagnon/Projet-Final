@@ -21,16 +21,14 @@ namespace Projet_Final
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Afficher_Passager : Page
+    public sealed partial class Afficher_TrajetEC : Page
     {
-        public Afficher_Passager()
+        public Afficher_TrajetEC()
         {
             this.InitializeComponent();
-            lvPassager.ItemsSource = GestionBD.getInstance().getPassager();
-            if(MainWindow.connecter == "Conducteur")
-            {
-                lvPassager.ItemsSource = GestionBD.getInstance().getPassagerConducteur(MainWindow.id);
-            }
+            lvTrajetEC.ItemsSource = GestionBD.getInstance().getTrajetEC();
         }
+
+
     }
 }
