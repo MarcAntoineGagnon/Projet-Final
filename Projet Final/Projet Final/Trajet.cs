@@ -51,7 +51,10 @@ namespace Projet_Final
         public string Ville_arriver { get { return ville_arriver; } set { ville_arriver = value; this.OnPropertyChanged(); } }
 
         public bool Arret { get { return arret; } set { arret = value; this.OnPropertyChanged(); } }
-
+        public string CSV()
+        {
+            return id + ";" + id_voiture + ";" + id_conducteur + ";" + date + ";" + heure_depart + ";" + heure_arriver + ";" + ville_depart + ";" + ville_arriver + ";" + arret;
+        }
         bool IEquatable<Trajet>.Equals(Trajet other)
         {
             if (this.id.Equals(other.id) && this.id_voiture.Equals(other.id_voiture) && this.id_conducteur.Equals(other.id_conducteur) && this.date.Equals(other.date) && this.heure_depart.Equals(other.heure_depart) && this.heure_arriver.Equals(other.heure_arriver) && this.ville_depart.Equals(other.ville_depart) && this.ville_arriver.Equals(other.ville_arriver) && this.arret.Equals(other.arret))
@@ -67,6 +70,7 @@ namespace Projet_Final
                         "\n" + "Destination : " + ville_arriver + "\n" + "Arret : " + arret;
 
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

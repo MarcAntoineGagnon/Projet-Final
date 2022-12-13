@@ -5,11 +5,14 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -39,6 +42,30 @@ namespace Projet_Final
             {
                 GestionBD.getInstance().modifierPassager(t, MainWindow.id);
             }
+        }
+
+        private async void CSV_Click(object sender, RoutedEventArgs e)
+        {
+            var picker = new Windows.Storage.Pickers.FileSavePicker();
+
+            /******************** POUR WINUI3 ***************************/
+            var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(GestionBD.getInstance().Fenetre);
+            WinRT.Interop.InitializeWithWindow.Initialize(picker, hWnd);
+            /************************************************************/
+
+            picker.SuggestedFileName = "trajet liste";
+            picker.FileTypeChoices.Add("Fichier csv", new List<string>() { ".csv" });
+
+            //crée le fichier
+            Windows.Storage.StorageFile monFichier = await picker.PickSaveFileAsync();
+
+            var liste = lvTrajet.ItemsSource as ObservableCollection<Trajet>;
+            var l = liste.ToList();
+
+            // La fonction ToString de la classe Client retourne: nom + ";" + prenom
+
+            await Windows.Storage.FileIO.WriteLinesAsync(monFichier, l.ConvertAll(x => x.CSV()), Windows.Storage.Streams.UnicodeEncoding.Utf8);
+
         }
     }
 }

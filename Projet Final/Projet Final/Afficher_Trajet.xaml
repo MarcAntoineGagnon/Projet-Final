@@ -16,9 +16,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
         <Button x:Name="reservation" Content="Réservé" Grid.Row="0" Grid.Column="1" Click="reservation_Click"/>
+        <Button x:Name="CSV" Content="Fichier CSV" Grid.Row="0" Grid.Column="2" Click="CSV_Click"/>
         <ListView x:Name="lvTrajet" Grid.Row="1" Grid.Column="0"/>
     </Grid>
 </Page>

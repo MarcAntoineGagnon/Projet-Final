@@ -38,6 +38,7 @@ namespace Projet_Final
             GestionBD.getInstance().IListeVille = iListeVille;
             GestionBD.getInstance().IAjoutVoiture = iAjoutVoiture;
             GestionBD.getInstance().IListeVoiture = iListeVoiture;
+            GestionBD.getInstance().Fenetre = this;
 
             tblHeader.Text = "Liste Trajet";
             mainFrame.Navigate(typeof(Afficher_Trajet));

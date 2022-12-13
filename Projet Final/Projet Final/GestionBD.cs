@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml.Controls;
+﻿using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,9 @@ namespace Projet_Final
         NavigationViewItem iListeVille;
         NavigationViewItem iAjoutVoiture;
         NavigationViewItem iListeVoiture;
+        MainWindow fenetre;
 
+        public MainWindow Fenetre { get => fenetre; set => fenetre = value; }
         public NavigationViewItem IAjoutTrajet { get => iAjoutTrajet; set => iAjoutTrajet = value; }
 
         public NavigationViewItem IAjoutAdmin { get => iAjoutAdmin; set => iAjoutAdmin = value; }
